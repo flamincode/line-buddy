@@ -4,16 +4,22 @@ import './App.css';
 import { VoicePlayer, VoiceRecognition } from 'react-voice-components'
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      recording: false
+    }
+    this.startRecording = this.startRecording.bind(this)
+    this.stopRecording = this.stopRecording.bind(this)
+  }
   
-  renderRecognition () {
-    // return <VoiceRecognition
-    //   continuous
-    //   onResult={(e) => {alert(e)}}
-    //   onStart={(e) => {alert(e)}}
-    //   onEnd={(e) => {alert(e)}}
-    //   onError={(e) => {alert(e)}}
-    // />
-    alert('hellp')
+  startRecording () {
+    this.setState({recording: true})
+  }
+
+  stopRecording () {
+    this.setState({recording: false})
   }
   
   render() {
@@ -24,8 +30,19 @@ class App extends Component {
           text="Testing the voice player"
         />
         <Button
-          onClick={this.renderRecognition}
+          onClick={this.startRecording}
         >Start Recognition</Button>
+        <Button
+          onClick={this.stopRecording}
+        >Stop Recognition</Button>
+        {this.state.recording ?
+          <VoiceRecognition
+            continuous
+            onResult={(e) => {alert(e)}}
+            onStart={(e) => {alert(e)}}
+            onEnd={(e) => {alert(e)}}
+            onError={(e) => {alert(e)}}
+          /> : ''}
       </div>
     );
   }
