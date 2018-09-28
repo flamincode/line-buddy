@@ -17,6 +17,38 @@ class App extends Component {
     this.stopRecording = this.stopRecording.bind(this)
     this.registerRecording = this.registerRecording.bind(this)
     this.getText = this.getText.bind(this)
+
+    this.fullScript = [ 'MIKE',
+      'And there was that kid who dressed',
+      'up as Marilyn Monroe for the',
+      'Halloween dance senior year.',
+      'BILL',
+      'Oh yeah, he had basket balls',
+      'stuffed in his dress for boobs.',
+      'MIKE',
+      'And he tripped on the bleachers,',
+      'bounced like three feet up in the',
+      'air and ',
+      'landed with his dress on',
+      'his face.',
+      'Everyone at the table laughs, except Jess.',
+      'BILL',
+      'What was that guy’s name again?',
+      'MIKE',
+      'I don’t remember, Jess will.',
+      'Everyone looks over at Jess who isn’t paying attention.',
+      'BILL',
+      'Jess. Jess?',
+      'JESSICA',
+      'What?',
+      'MIKE',
+      'What was the name of that guy,',
+      'senior year dressed as Marilyn',
+      'Monroe to the Halloween dance.',
+      'JESSICA',
+      'Ben something.',
+      'BILL',
+      'That’s right, Ben Scott.' ]
   }
 
   componentDidMount() {
@@ -42,7 +74,7 @@ class App extends Component {
   getText () {
     console.error('here')
     fetch('/pdfreader')
-      .then(res => res.text())
+      .then(res => res)
       .then(script => console.error(script));
   }
 
